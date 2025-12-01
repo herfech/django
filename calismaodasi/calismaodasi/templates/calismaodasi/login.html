@@ -1,0 +1,10 @@
+{% extends 'calismaodasi/base.html' %}
+{% block title %}Giriş Yap{% endblock %}
+{% block content %}
+  <h2>Giriş Yap</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Giriş</button>
+  </form>
+{% endblock %}

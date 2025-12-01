@@ -1,0 +1,15 @@
+{% extends 'calismaodasi/base.html' %}
+{% block title %}Rezervasyonlarım{% endblock %}
+{% block content %}
+  <h2 class="mb-4 text-warning">Rezervasyonlarım</h2>
+  <ul>
+    {% for r in reservations %}
+      <li>
+        <strong>{{ r.room.name }}</strong> — {{ r.date }} {{ r.start_time }}–{{ r.end_time }}
+        <span style="color: gray;">{{ r.room.location }}</span>
+      </li>
+    {% empty %}
+      <li>Henüz rezervasyonunuz yok.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
