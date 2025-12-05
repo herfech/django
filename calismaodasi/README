@@ -1,1 +1,107 @@
+# Çalışma Odası Rezervasyon Sistemi (CALISMAODASI)
 
+Bu proje, Django ile geliştirilmiş, kullanıcıların çalışma odalarını kolayca rezerve edebileceği bir rezervasyon yönetim sistemidir.
+
+## 📂 Proje Yapısı
+
+Aşağıdaki yapı, projenin kaynak kodunun ve uygulamalarının organizasyonunu göstermektedir:
+
+CALISMAODASI/
+├── manage.py
+├── db.sqlite3
+├── calismaodasi/
+│   ├── static/
+│   │   └── css/
+│   │       └── styles.css
+│   ├── templates/
+│   │   └── calismaodasi/
+│   │       ├── base.html     # Ana şablon
+│   │       └── home.html     # Ana sayfa şablonu
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+│
+├── notifications/  # Bildirimler Uygulaması
+│   ├── migrations/
+│   ├── templates/
+│   │   └── notifications/
+│   │       └── list.html     # Bildirim listesi şablonu
+│   ├── models.py     # Notification modeli (Rezervasyon bildirimi dahil)
+│   ├── views.py     
+│   └── urls.py
+│
+├── reservations/   # Rezervasyon İşlemleri Uygulaması
+│   ├── migrations/
+│   ├── templates/
+│   │   └── reservations/
+│   │       ├── create.html
+│   │       └── mine.html     # Kullanıcının rezervasyon listesi
+│   ├── forms.py
+│   ├── models.py     # Reservation modeli
+│   ├── views.py     # Çakışma kontrolü ve bildirim oluşturma mantığı burada
+│   └── urls.py
+│
+├── rooms/          # Odalar Yönetimi Uygulaması
+│   ├── migrations/
+│   ├── templates/
+│   │   └── rooms/
+│   │       ├── detail.html   # Oda detayları
+│   │       └── list.html     # Oda listesi
+│   ├── models.py     # Room modeli
+│   ├── views.py
+│   └── urls.py
+│
+└── users/          # Kullanıcı Yönetimi Uygulaması
+    ├── migrations/
+    ├── forms.py      # CustomUserCreationForm
+    ├── views.py    
+    └── urls.py
+
+---
+
+## 🚀 Başlangıç
+
+Projeyi yerel ortamınızda ayağa kaldırmak için aşağıdaki adımları izleyin:
+
+```bash
+git clone [https://github.com/kullanici/calismaodasi.git](https://github.com/kullanici/calismaodasi.git)
+cd calismaodasi
+
+# Sanal Ortam Oluşturma ve Aktifleştirme
+python -m venv sanalortam
+source sanalortam/bin/activate    # Linux/Mac
+sanalortam\Scripts\activate       # Windows (Dizin yapınızdaki isme göre 'sanalortam' kullanıldı)
+
+# Bağımlılıkları Yükleme
+pip install -r requirements.txt
+
+# Veritabanı Geçişleri ve Kullanıcı Oluşturma
+python manage.py migrate
+python manage.py createsuperuser
+
+# Sunucuyu Başlatma
+python manage.py runserver
+
+Özellik,Uygulama / Konum,Açıklama
+Özel Kullanıcı Kaydı,users/forms.py,"CustomUserCreationForm ile ek alanlar (ad, soyad, e-posta) dahil edildi."
+Gereken Oturum,@login_required,Rezervasyon oluşturma gibi kritik işlemlere yalnızca oturum açmış kullanıcılar erişebilir.
+Rezervasyon Çakışma Kontrolü,reservations/views.py,"Aynı oda, tarih ve saat aralığı için üst üste rezervasyon yapılması engellenir."
+Bildirim Sistemi,notifications/,Başarılı rezervasyon sonrasında kullanıcıya anında bildirim oluşturulur.
+Gelişmiş Form Görünümü,django-widget-tweaks,Tüm formlar Bootstrap stiline uygun olarak (özellikle register.html) düzenlendi.
+Kullanıcı Rezervasyonları,reservations/mine.html,Kullanıcının kendine ait geçmiş ve güncel rezervasyonlarını görmesi sağlanır.
+
+🎨 Tasarım
+Framework: Bootstrap 5.3
+
+Özel Stiller: calismaodasi/static/css/styles.css
+
+Arayüz: Responsive navbar ve modern arayüz
+
+Renk Paleti: Sıcak renk paleti (turuncu, gri, beyaz)
+
+📌 Gelecek Geliştirmeler
+Ana sayfada hero section ve hızlı rezervasyon alanı eklenmesi.
+
+Odalar için daha gerçekçi içerik ve görseller eklenmesi.
+
+Kullanıcının rezervasyonlarını iptal edebilmesi için bir işlev eklenmesi.
