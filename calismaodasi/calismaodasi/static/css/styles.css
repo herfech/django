@@ -83,3 +83,40 @@
     height: auto;
 }
 
+/* button detay */
+.custom-btn-2 {
+    background-image: linear-gradient(to right, #b6502f, #f7b15e); 
+    border: none;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.blurred-box {
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(1.5rem);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0.2rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* login */
+.form-container input[type="text"],
+.form-container input[type="password"] {
+    background-color: #120e38; 
+    color: #ffffff;
+    border: 1px solid #2a2559;
+    border-radius: 6px;
+    padding: 0.75rem;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+.form-container input[type="text"]:focus,
+.form-container input[type="password"]:focus {
+    border-color: #a491f2;
+    outline: none;
+    box-shadow: 0 0 0 0.25rem rgba(164, 145, 242, 0.25);
+}
