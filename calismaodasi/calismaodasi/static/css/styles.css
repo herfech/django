@@ -53,7 +53,7 @@
     max-width: 80%;
 }
 
-/* * ----------------------------------------
+/* * --------------------------------------
  * Ana Düğme Stili (Odaları Görüntüle)
  * ----------------------------------------
  */
@@ -103,7 +103,7 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* login */
+/*login*/
 .form-container input[type="text"],
 .form-container input[type="password"] {
     background-color: #120e38; 

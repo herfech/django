@@ -1,6 +1,5 @@
 {% extends 'calismaodasi/base.html' %}
 {% load static %}
-
 {% block title %}Rezervasyonlarım{% endblock %}
 
 {% block extra_css %}
@@ -34,6 +33,7 @@
           </div>
         {% endfor %}
     </div>
+    
     {% else %}
         <div class="room-card p-4 text-center">
             <p class="text-muted mb-0">Henüz rezervasyonunuz yok.</p>
